@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none';" />
+<title>Connecting…</title>
+<noscript>Redirecting… If you are not redirected, <a id="ns" href="#">click here</a>.</noscript>
+<script>
+  // Relay for the NEW Dynasty (tailnet host tk-dynasty). oauth-relay.html serves the old system.
+  // Preserve the entire query string exactly (code, state, realmId)
+  var qs = window.location.search || "";
+  var target = "https://tk-dynasty/oauth/callback" + qs;
+  // No referrer; replace so the code doesn't linger in browser history
+  window.location.replace(target);
+  // Fallback for no-JS
+  document.getElementById("ns")?.setAttribute("href", target);
+</script>
